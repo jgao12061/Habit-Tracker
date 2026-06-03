@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
 {
     Schema::table('users', function (Blueprint $table) {
-        $table->string('role')->default('USER');
+        if (!Schema::hasColumn('users', 'role')) {
+            $table->string('role')->default('USER');
+        }
     });
 }
 
@@ -26,3 +28,4 @@ public function down()
 } 
 }
 ;
+
