@@ -4,7 +4,7 @@
 <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="form-box">
         <h4 class="mb-4 text-center">Create account</h4>
-        <form method="POST" action="{{ route('register') }}" autocomplete="off" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-2">
@@ -19,12 +19,12 @@
 
             <div class="mb-2">
                 <label class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Email" autocomplete="off" required>
+                <input type="email" name="email" class="form-control" placeholder="Email" required>
             </div>
 
             <div class="mb-2">
                 <label class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Password" autocomplete="off" required>
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
             </div>
 
             <div class="mb-2">
