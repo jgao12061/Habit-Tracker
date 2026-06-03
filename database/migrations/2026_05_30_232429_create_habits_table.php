@@ -6,25 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
-{
-    Schema::dropIfExists('habits');
-    Schema::create('habits', function (Blueprint $table) {
-        $table->id();
-        $table->string('title');
-        $table->text('description')->nullable();
-        $table->foreignId('user_id')->constrained()->onDelete('cascade');
-        $table->string('category');
-        $table->integer('streak')->default(0);
-        $table->date('last_completed_at')->nullable();
-        $table->boolean('is_active')->default(true);
-        $table->timestamps();
-    });
-}
-    /**
-     * Reverse the migrations.
-     */
+    {
+        // superseded by 2026_05_31_195436_create_habits_table.php
+    }
+
+    public function down(): void
+    {
+        // 
+    }
 };
