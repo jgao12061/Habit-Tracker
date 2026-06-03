@@ -10,22 +10,21 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('habits', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->boolean('streak_active')->default(false);
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('category_id');
-            $table->timestamps();
-        });
-    }
-
+{
+    Schema::dropIfExists('habits');
+    Schema::create('habits', function (Blueprint $table) {
+        $table->id();
+        $table->string('title');
+        $table->text('description')->nullable();
+        $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        $table->string('category');
+        $table->integer('streak')->default(0);
+        $table->date('last_completed_at')->nullable();
+        $table->boolean('is_active')->default(true);
+        $table->timestamps();
+    });
+}
     /**
      * Reverse the migrations.
      */
-    public function down(): void
-    {
-        Schema::dropIfExists('habits');
-    }
 };
