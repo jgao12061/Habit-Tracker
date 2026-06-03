@@ -6,24 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-   public function up(): void
-{
-    Schema::table('habits', function (Blueprint $table) {
-        $table->renameColumn('name', 'title');
-    });
-}
+    public function up(): void
+    {
+        // no longer needed - title already exists in create_habits_table
+    }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-    
-    Schema::table('habits', function (Blueprint $table) {
-
-    });
-}
-    };
+        //
+    }
+};
